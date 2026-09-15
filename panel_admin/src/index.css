@@ -1,0 +1,227 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f7f8fa; /* app.cuerpo en src/core/theme.js */
+  color: #1e293b; /* app.texto-primario */
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+.route-point-marker {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border: 3px solid #ffffff;
+  border-radius: 9999px;
+  background: #ff7a00;
+  box-shadow: 0 8px 18px rgb(15 23 42 / 22%);
+  color: #ffffff;
+  cursor: grab;
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1;
+  outline: none;
+}
+
+.route-point-marker:active {
+  cursor: grabbing;
+}
+
+.route-point-marker[data-type="inicio"] {
+  background: #0d5a38;
+}
+
+.route-point-marker[data-type="fin"] {
+  background: #ef4444;
+}
+
+.route-point-marker[data-loose="true"] {
+  background: #475569;
+  border-style: dashed;
+}
+
+.route-point-marker:focus-visible {
+  box-shadow: 0 0 0 4px rgb(234 244 239 / 90%), 0 8px 18px rgb(15 23 42 / 22%);
+}
+
+.route-vertex-marker {
+  display: grid;
+  width: 20px;
+  height: 20px;
+  place-items: center;
+  border: 2px solid #ff7a00;
+  border-radius: 9999px;
+  background: #ffffff;
+  box-shadow: 0 6px 14px rgb(15 23 42 / 18%);
+  color: #ff7a00;
+  cursor: grab;
+  font-size: 10px;
+  font-weight: 900;
+  line-height: 1;
+  outline: none;
+}
+
+.route-vertex-marker:active {
+  cursor: grabbing;
+}
+
+.route-point-popup {
+  display: grid;
+  min-width: 170px;
+  gap: 6px;
+}
+
+.route-point-popup p {
+  margin: 0 0 3px;
+  color: #1e293b;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.route-point-popup button {
+  border: 0;
+  border-radius: 6px;
+  background: #eaf4ef;
+  padding: 7px 9px;
+  color: #0d5a38;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 800;
+  text-align: left;
+}
+
+.route-point-popup button:last-child {
+  background: #fef2f2;
+  color: #ef4444;
+}
+
+.content-quill {
+  overflow: visible;
+}
+
+.content-quill--workspace {
+  display: flex;
+  height: 100%;
+  min-height: 0;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.content-quill .ql-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: #ffffff;
+  border: 0;
+  border-bottom: 1px solid #d7e2df;
+  box-shadow: 0 1px 0 rgba(10, 48, 39, 0.04);
+}
+
+.content-quill .ql-container {
+  min-height: 500px;
+  border: 0;
+  font: inherit;
+}
+
+.content-quill--workspace .ql-container {
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.content-quill .ql-editor {
+  min-height: 500px;
+  padding: 20px;
+  color: #1f2933;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.content-quill--workspace .ql-editor {
+  min-height: 0;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.prose-preview {
+  overflow: hidden;
+}
+
+.prose-preview--workspace {
+  min-height: 0;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.prose-preview h1,
+.prose-preview h2,
+.prose-preview h3 {
+  margin: 18px 0 12px;
+  border-left: 4px solid #00876f;
+  border-radius: 6px;
+  background: #e9f8f4;
+  padding: 8px 12px;
+  color: #0b1f35;
+  font-weight: 900;
+}
+
+.prose-preview h1:first-child,
+.prose-preview h2:first-child,
+.prose-preview h3:first-child {
+  margin-top: 0;
+}
+
+.prose-preview h1 {
+  font-size: 24px;
+}
+
+.prose-preview h2 {
+  font-size: 20px;
+}
+
+.prose-preview h3 {
+  font-size: 17px;
+}
+
+.prose-preview p,
+.prose-preview ul,
+.prose-preview ol,
+.prose-preview blockquote {
+  margin: 0 0 14px;
+}
+
+.prose-preview ul,
+.prose-preview ol {
+  padding-left: 22px;
+}
+
+.prose-preview strong {
+  font-weight: 900;
+}
+
+.prose-preview a {
+  color: #00876f;
+  font-weight: 800;
+}

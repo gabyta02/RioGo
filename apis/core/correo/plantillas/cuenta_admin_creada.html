@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block contenido %}
+<p style="margin:0 0 12px;font-size:18px;font-weight:bold;color:#1E293B;">Hola {{ nombre_completo }},</p>
+<p style="margin:0 0 20px;font-size:15px;line-height:1.6;color:#475569;">
+  Se creo tu cuenta administrativa en {{ marca }}. Usa las credenciales temporales para ingresar al panel.
+</p>
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin:0 0 20px;background:#F9FAFB;border:1px solid #E2E8F0;border-radius:10px;">
+  <tr>
+    <td style="padding:16px 18px;">
+      <p style="margin:0 0 8px;font-size:14px;color:#64748B;">Usuario</p>
+      <p style="margin:0 0 16px;font-size:16px;font-weight:bold;color:#1E293B;">{{ username }}</p>
+      <p style="margin:0 0 8px;font-size:14px;color:#64748B;">Contrasena temporal</p>
+      <p style="margin:0;font-size:16px;font-weight:bold;color:{{ color_primario }};">{{ password_temporal }}</p>
+    </td>
+  </tr>
+</table>
+<p style="margin:0 0 20px;font-size:14px;line-height:1.6;color:#475569;">
+  Por seguridad, cambia tu contrasena despues del primer acceso.
+</p>
+<a href="{{ url_panel }}" style="display:inline-block;background:{{ color_acento }};color:#FFFFFF;text-decoration:none;font-size:15px;font-weight:bold;padding:12px 20px;border-radius:8px;">
+  Ir al panel administrativo
+</a>
+{% endblock %}

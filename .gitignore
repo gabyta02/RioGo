@@ -1,0 +1,55 @@
+# =========================
+# VARIABLES DE ENTORNO
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# PYTHON
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+# =========================
+# TESTS
+# =========================
+.pytest_cache/
+.coverage
+htmlcov/
+
+# =========================
+# LOGS
+# =========================
+*.log
+logs/
+
+# =========================
+# DOCKER
+# =========================
+docker-compose.override.yml
+docker-compose.*.override.yml
+
+# Archivos temporales / volúmenes locales
+docker-data/
+volumes/
+data/
+
+# =========================
+# IDE
+# =========================
+.vscode/
+.idea/
+
+# =========================
+# SISTEMA
+# =========================
+.DS_Store
+Thumbs.db

@@ -1,0 +1,33 @@
+{
+  "timestamp": "2026-07-01T16:44:20",
+  "provider": "deepseek",
+  "model": "deepseek-v4-flash",
+  "base_url": "https://api.deepseek.com",
+  "requests": 100,
+  "concurrency": 100,
+  "timeout_seconds": 35.0,
+  "max_tokens": 512,
+  "json_response": true,
+  "total_duration_seconds": 4.693,
+  "ok": 100,
+  "failed": 0,
+  "success_rate_percent": 100.0,
+  "errors_by_type": {},
+  "errors_by_status_code": {},
+  "latency_all_seconds": {
+    "min": 1.658,
+    "avg": 2.271,
+    "p50": 2.247,
+    "p95": 2.957,
+    "p99": 3.318,
+    "max": 3.954
+  },
+  "latency_ok_seconds": {
+    "min": 1.658,
+    "avg": 2.271,
+    "p50": 2.247,
+    "p95": 2.957,
+    "p99": 3.318,
+    "max": 3.954
+  }
+}

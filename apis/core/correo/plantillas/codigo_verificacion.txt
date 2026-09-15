@@ -1,0 +1,11 @@
+{{ marca }} - {{ titulo }}
+
+{{ mensaje }}
+
+Tu codigo de verificacion es: {{ codigo }}
+
+Este codigo expira en {{ expira_minutos }} minutos.
+
+Por seguridad, no compartas este codigo con nadie.
+
+Si no solicitaste este correo, puedes ignorarlo con seguridad.

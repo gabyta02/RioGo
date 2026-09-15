@@ -1,0 +1,7 @@
+{{ marca }} - Nombre de usuario
+
+Hola {{ nombre_completo }}, este es el nombre de usuario asociado a tu cuenta RiobambaTour:
+
+{{ username }}
+
+Si no solicitaste este recordatorio, puedes ignorar este mensaje.

@@ -1,0 +1,2 @@
+"""WebSocket entrypoints for chatboot."""
+

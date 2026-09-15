@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Probar Chatboot</title>
+  <link rel="stylesheet" href="./chatboot.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="connection">
+        <label>
+          WebSocket
+          <input id="baseUrl" type="text" value="wss://riobambatour.org" />
+        </label>
+        <label>
+          Canal
+          <select id="channel">
+            <option value="exploracion">/ws/exploracion</option>
+            <option value="pregunta_directa">/ws/pregunta_directa</option>
+          </select>
+        </label>
+        <button id="connectBtn" type="button">Conectar</button>
+        <button id="disconnectBtn" type="button" disabled>Desconectar</button>
+      </div>
+
+      <section class="metrics" aria-label="Estado de conexión">
+        <div>
+          <span>Estado</span>
+          <strong id="status">desconectado</strong>
+        </div>
+        <div>
+          <span>Respuesta</span>
+          <strong id="responseTime">-</strong>
+        </div>
+        <div>
+          <span>Stream</span>
+          <strong id="streamCount">0</strong>
+        </div>
+        <div class="socket-box">
+          <span>URL</span>
+          <strong id="socketUrl">-</strong>
+        </div>
+      </section>
+    </header>
+
+    <section class="workspace">
+      <section class="phone-column" aria-label="Vista tipo móvil">
+        <div class="phone">
+          <header class="phone-header">
+            <div>
+              <strong id="phoneTitle">RiobambaGo</strong>
+              <span id="phoneSubtitle">Exploración turística</span>
+            </div>
+            <div class="phone-header-actions">
+              <button id="backExploracionBtn" class="header-chip" type="button" hidden>Volver</button>
+              <span id="sessionBadge">sin sesión</span>
+            </div>
+          </header>
+
+          <div id="siteContextBar" class="site-context" hidden>
+            <span class="site-context-label">Chat del sitio</span>
+            <strong id="siteContextName">Sitio turístico</strong>
+            <span id="siteContextId">id_sitio -</span>
+          </div>
+
+          <div id="chatMessages" class="chat-messages">
+            <div class="empty-state">
+              Conéctate y envía una consulta. En exploración prueba una pregunta directa por nombre;
+              al tocar la acción se abrirá el chat del sitio como en la app móvil.
+            </div>
+          </div>
+
+          <form id="sendForm" class="composer">
+            <textarea
+              id="message"
+              rows="2"
+              placeholder="Escribe una consulta turística..."
+            >Cuéntame sobre la Casa Museo de Riobamba</textarea>
+            <div class="composer-row">
+              <label id="siteIdWrap" class="site-id-wrap" hidden>
+                <span>id_sitio</span>
+                <input id="siteId" type="number" min="1" step="1" value="68" />
+              </label>
+              <label id="siteNameWrap" class="site-id-wrap" hidden>
+                <span>nombre_sitio</span>
+                <input id="siteName" type="text" value="Mercado de la Merced" />
+              </label>
+              <button id="sendBtn" type="submit" disabled>Enviar</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <aside class="side-panel" aria-label="Detalle técnico">
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Simulación móvil</h2>
+          </div>
+          <p class="panel-copy">
+            Flujo recomendado: 1) exploración con nombre de sitio → 2) tocar
+            <em>Abrir chatbot del sitio</em> → 3) preguntar en el canal del sitio.
+          </p>
+          <div class="scenario-list">
+            <button class="scenario-button" type="button" data-scenario="exploracion-pregunta-directa">
+              Exploración: pregunta directa
+            </button>
+            <button class="scenario-button" type="button" data-scenario="exploracion-museos">
+              Exploración: museos cerca
+            </button>
+            <button class="scenario-button" type="button" data-scenario="sitio-horario">
+              Sitio: horario de atención
+            </button>
+            <button class="scenario-button" type="button" data-scenario="sitio-precio">
+              Sitio: precio de entrada
+            </button>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Payload de envío</h2>
+            <button id="newSessionBtn" class="small-button" type="button">Nueva sesión</button>
+          </div>
+          <label>
+            Ubicación JSON
+            <textarea id="location" rows="4">{"lat": -1.6736, "lng": -78.6473}</textarea>
+          </label>
+          <label>
+            id_usuario de prueba
+            <input id="userId" type="number" min="1" step="1" value="1" />
+          </label>
+          <label>
+            sesion_Id
+            <input id="sessionInput" type="text" placeholder="Vacío para que backend genere una sesión" />
+          </label>
+          <pre id="outboundJson" class="json-view compact">Aún no hay envíos.</pre>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Clasificación / canal</h2>
+            <span id="planStatus">sin respuesta</span>
+          </div>
+          <pre id="classificationJson" class="json-view">Aún no hay clasificación.</pre>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Ejecución</h2>
+            <span id="idsSummary">sin IDs</span>
+          </div>
+          <pre id="executionJson" class="json-view">Aún no hay ejecución.</pre>
+        </section>
+      </aside>
+    </section>
+  </main>
+
+  <script src="./chatboot.js"></script>
+</body>
+</html>

@@ -1,0 +1,755 @@
+[
+  {
+    "id": "EX-S-001",
+    "pregunta": "¿Dónde puedo tomar fotos bonitas?",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-002",
+    "pregunta": "Quiero ver una cascada.",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-003",
+    "pregunta": "Busco un lugar con vista panorámica.",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-004",
+    "pregunta": "¿Qué iglesias puedo visitar?",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-005",
+    "pregunta": "Quiero un lugar para comer algo rico.",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-006",
+    "pregunta": "¿Hay algún museo?",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-007",
+    "pregunta": "Busco un sitio tranquilo para relajarme.",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-008",
+    "pregunta": "¿Dónde puedo ver el volcán Chimborazo?",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-009",
+    "pregunta": "Quiero conocer un mercado típico.",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-010",
+    "pregunta": "Busco un lugar para acampar.",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-011",
+    "pregunta": "¿Dónde puedo montar a caballo?",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-012",
+    "pregunta": "Quiero un lugar para pescar.",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-013",
+    "pregunta": "Busco una laguna para visitar.",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-014",
+    "pregunta": "¿Dónde hay artesanías típicas?",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-015",
+    "pregunta": "Quiero un parque para caminar.",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-016",
+    "pregunta": "Busco un mirador para ver el atardecer.",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-017",
+    "pregunta": "¿Dónde puedo probar comida típica de la zona?",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-018",
+    "pregunta": "Quiero conocer un balneario o piscina termal.",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-019",
+    "pregunta": "Busco un lugar con paisajes naturales.",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-020",
+    "pregunta": "¿Dónde hay un centro cultural?",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-021",
+    "pregunta": "Quiero ver arquitectura colonial.",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-022",
+    "pregunta": "Busco un lugar para hacer picnic.",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-023",
+    "pregunta": "¿Dónde puedo comprar recuerdos?",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-024",
+    "pregunta": "Quiero conocer una hacienda turística.",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-025",
+    "pregunta": "Busco un lugar para ver aves.",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-026",
+    "pregunta": "Hola, buenos días.",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-027",
+    "pregunta": "Gracias por la ayuda.",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-028",
+    "pregunta": "Hasta luego, nos vemos.",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-029",
+    "pregunta": "Quiero un lugar para escalar.",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-030",
+    "pregunta": "Busco un café con buen ambiente.",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-031",
+    "pregunta": "¿Qué hay para hacer en Riobamba?",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-032",
+    "pregunta": "Quiero visitar un convento.",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-033",
+    "pregunta": "Busco un lugar para aprender sobre la historia local.",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-034",
+    "pregunta": "¿Dónde puedo ver artesanías de paja toquilla?",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-035",
+    "pregunta": "Quiero conocer la gastronomía típica de Chimborazo.",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-036",
+    "pregunta": "Busco un lugar para hacer senderismo.",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-037",
+    "pregunta": "¿Hay algún lugar para ver flores o jardines?",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-038",
+    "pregunta": "Quiero visitar una comunidad indígena.",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-039",
+    "pregunta": "Busco un lugar para observar el nevado.",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-040",
+    "pregunta": "¿Dónde hay ferias artesanales?",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-041",
+    "pregunta": "Quiero un lugar de aventura.",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-042",
+    "pregunta": "Busco un restaurante con comida tradicional ecuatoriana.",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-043",
+    "pregunta": "¿Hay algún lugar para hacer deportes acuáticos?",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-044",
+    "pregunta": "Quiero visitar un páramo.",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-045",
+    "pregunta": "Busco un lugar para hacer fotografía de naturaleza.",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-046",
+    "pregunta": "¿Dónde puedo aprender sobre tejidos tradicionales?",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-047",
+    "pregunta": "Quiero conocer la historia de Riobamba.",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-048",
+    "pregunta": "Busco un lugar donde haya danzas tradicionales.",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-049",
+    "pregunta": "¿Hay alguna feria gastronómica?",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-S-050",
+    "pregunta": "Quiero visitar un lugar de observación astronómica.",
+    "nivel": "simple"
+  },
+  {
+    "id": "EX-M-001",
+    "pregunta": "Quiero un lugar para tomar fotos que esté abierto los domingos.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-002",
+    "pregunta": "Busco un hotel económico.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-003",
+    "pregunta": "¿Hay restaurantes que acepten mascotas?",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-004",
+    "pregunta": "Quiero un museo con entrada gratuita.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-005",
+    "pregunta": "Busco una ruta de senderismo cerca de mi ubicación.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-006",
+    "pregunta": "¿Qué lugares hay cerca del centro de Riobamba?",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-007",
+    "pregunta": "Quiero un sitio que abra después de las 6 pm.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-008",
+    "pregunta": "Busco un lugar a menos de 2 km de aquí.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-009",
+    "pregunta": "Quiero un restaurante con parqueadero.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-010",
+    "pregunta": "Busco un hotel con accesibilidad para silla de ruedas.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-011",
+    "pregunta": "¿Dónde puedo contactar por WhatsApp a un guía turístico?",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-012",
+    "pregunta": "Quiero un lugar cuya entrada cueste menos de 5 dólares.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-013",
+    "pregunta": "Busco un restaurante abierto antes de las 8 am.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-014",
+    "pregunta": "Quiero un lugar para hacer ciclismo cerca de mi posición.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-015",
+    "pregunta": "¿Hay algún sitio con entrada gratuita para niños?",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-016",
+    "pregunta": "Busco un bar que abra los fines de semana.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-017",
+    "pregunta": "Quiero un hostal de precio moderado.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-018",
+    "pregunta": "Busco un restaurante a 500 metros de aquí.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-019",
+    "pregunta": "Quiero una caminata urbana cerca del centro histórico.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-020",
+    "pregunta": "Busco un lugar con entrada gratuita para estudiantes.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-021",
+    "pregunta": "¿Dónde hay un café con wifi?",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-022",
+    "pregunta": "Quiero un lugar para cenar mañana en la noche.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-023",
+    "pregunta": "Busco un mirador cerca de la ciudad.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-024",
+    "pregunta": "Quiero un restaurante caro y exclusivo.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-025",
+    "pregunta": "Busco un sitio que abra de lunes a viernes.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-026",
+    "pregunta": "Quiero un lugar para montañismo cerca de aquí.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-027",
+    "pregunta": "Busco un atractivo con entrada gratuita para adultos mayores.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-028",
+    "pregunta": "¿Hay algún restaurante con teléfono para reservar?",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-029",
+    "pregunta": "Quiero un parque que permita mascotas.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-030",
+    "pregunta": "Busco un lugar abierto hasta las 10 pm.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-031",
+    "pregunta": "Quiero un hostal con wifi cerca del terminal terrestre.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-032",
+    "pregunta": "Busco un restaurante que abra los lunes en la tarde.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-033",
+    "pregunta": "¿Hay algún atractivo a menos de 10 km de mi posición?",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-034",
+    "pregunta": "Quiero un lugar para hacer senderismo con entrada gratuita.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-035",
+    "pregunta": "Busco un hotel económico cerca de la plaza central.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-036",
+    "pregunta": "¿Hay museos que abran en la mañana?",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-037",
+    "pregunta": "Quiero un lugar para comer comida típica que no sea caro.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-038",
+    "pregunta": "Busco una ruta de ciclismo cerca de mi ubicación.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-039",
+    "pregunta": "¿Hay algún lugar con parqueadero en la zona norte de la ciudad?",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-040",
+    "pregunta": "Quiero un restaurante que acepte reservas por teléfono.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-041",
+    "pregunta": "Busco un lugar para acampar a menos de 20 km.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-042",
+    "pregunta": "¿Hay algún sitio accesible para personas con discapacidad cerca de aquí?",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-043",
+    "pregunta": "Quiero un café que abra los domingos en la mañana.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-044",
+    "pregunta": "Busco una ruta de caminata urbana que empiece cerca del parque central.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-045",
+    "pregunta": "¿Hay algún lugar con actividades para niños que abra los fines de semana?",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-046",
+    "pregunta": "Quiero un lugar para hacer parapente cerca de Riobamba.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-047",
+    "pregunta": "Busco un hostal con parqueadero y precio bajo.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-048",
+    "pregunta": "¿Hay algún museo abierto los martes en la tarde?",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-049",
+    "pregunta": "Quiero un restaurante con terraza que abra en la noche.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-M-050",
+    "pregunta": "Busco un lugar para tomar fotos cerca del río, que esté abierto los sábados.",
+    "nivel": "intermedia"
+  },
+  {
+    "id": "EX-C-001",
+    "pregunta": "Quiero un hostal barato, un museo abierto mañana con entrada gratuita y hablar con un guía turístico.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-002",
+    "pregunta": "Necesito una ruta de montañismo cerca de mi posición y además un restaurante con parqueadero.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-003",
+    "pregunta": "Cuéntame sobre la Catedral de Riobamba.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-004",
+    "pregunta": "Quiero un lugar para acampar y otro para comer algo típico, los dos cerca del centro.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-005",
+    "pregunta": "Busco el Mercado de la Merced y también un lugar para tomar fotos en la tarde.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-006",
+    "pregunta": "Necesito un guía para organizar mi viaje y un hotel con accesibilidad para silla de ruedas.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-007",
+    "pregunta": "Quiero información sobre la Laguna de Colta.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-008",
+    "pregunta": "Busco un hotel económico y un restaurante con wifi que abra los domingos.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-009",
+    "pregunta": "Quiero conocer el volcán Chimborazo y también un lugar para comprar artesanías.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-010",
+    "pregunta": "Necesito una ruta de senderismo cerca de mí y un café que acepte mascotas.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-011",
+    "pregunta": "Háblame de la Basílica del Sagrado Corazón.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-012",
+    "pregunta": "Quiero un lugar para pescar y otro para acampar, ambos con entrada gratuita.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-013",
+    "pregunta": "Busco un hostal con wifi y un mirador cerca del centro histórico.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-014",
+    "pregunta": "Necesito información del Parque Nacional Sangay.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-015",
+    "pregunta": "Quiero un restaurante caro para cenar mañana en la noche y un lugar tranquilo para el día siguiente.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-016",
+    "pregunta": "Busco una ruta de ciclismo y un lugar para comer comida típica cerca de la ruta.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-017",
+    "pregunta": "Cuéntame sobre el Convento de la Concepción.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-018",
+    "pregunta": "Quiero un hotel con entrada gratuita para niños y un museo abierto los fines de semana.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-019",
+    "pregunta": "Necesito un lugar para hacer fotografía y otro para hablar con un operador turístico por WhatsApp.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-020",
+    "pregunta": "Busco información sobre la Reserva de Producción de Fauna Chimborazo.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-021",
+    "pregunta": "Quiero un sitio para pasear con mascotas y otro para hacer compras de artesanías.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-022",
+    "pregunta": "Necesito un hostal de precio moderado y una ruta de montañismo cerca de la ciudad.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-023",
+    "pregunta": "Háblame del Mercado La Condamine.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-024",
+    "pregunta": "Quiero un restaurante con parqueadero abierto antes de las 9 am y un lugar para tomar fotos cerca.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-025",
+    "pregunta": "Busco una caminata urbana por el centro histórico y un café con wifi cerca.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-026",
+    "pregunta": "Necesito información sobre el tren Nariz del Diablo.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-027",
+    "pregunta": "Quiero un lugar para acampar cerca de mi posición y un restaurante con entrada gratuita para estudiantes.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-028",
+    "pregunta": "Cuéntame sobre la Iglesia de San Antonio.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-029",
+    "pregunta": "Busco un hotel exclusivo y un lugar para hacer pesca deportiva, los dos con parqueadero.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-030",
+    "pregunta": "Necesito un guía turístico y también una ruta de senderismo para el fin de semana.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-031",
+    "pregunta": "Quiero un hostal cerca del terminal y un museo con entrada para niños menor a 2 dólares.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-032",
+    "pregunta": "Busco un lugar para hacer trekking mañana y otro para comer caldo de gallina cerca.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-033",
+    "pregunta": "Necesito un hotel con wifi y parqueadero, y también un operador turístico por teléfono.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-034",
+    "pregunta": "Quiero información sobre la Quinta Macají.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-035",
+    "pregunta": "Busco un lugar para hacer ciclismo de montaña y un hostal barato para quedarme esa noche.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-036",
+    "pregunta": "Cuéntame sobre el Museo de la Ciudad de Riobamba.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-037",
+    "pregunta": "Quiero un restaurante típico abierto los domingos en la tarde y un parque cercano para caminar después.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-038",
+    "pregunta": "Necesito un lugar con wifi que abra antes de las 7 am y un guía para el día siguiente.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-039",
+    "pregunta": "Háblame del Centro Histórico de Riobamba.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-040",
+    "pregunta": "Quiero un lugar para ver aves por la mañana y un café con desayuno típico cerca.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-041",
+    "pregunta": "Busco información sobre la Laguna Negra de Ozogoche.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-042",
+    "pregunta": "Necesito un hostal accesible y una ruta de senderismo sin costo cerca.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-043",
+    "pregunta": "Cuéntame sobre el Mercado de San Alfonso.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-044",
+    "pregunta": "Quiero un restaurante con cocina típica serrana abierto hoy en la noche y un mirador cerca.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-045",
+    "pregunta": "Busco un operador turístico por teléfono y también información sobre lagunas en la zona.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-046",
+    "pregunta": "Necesito un hotel de precio moderado, un restaurante de mariscos cerca y una ruta de caminata urbana.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-047",
+    "pregunta": "Cuéntame sobre el Parque Sucre de Riobamba.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-048",
+    "pregunta": "Quiero un lugar para hacer yoga al aire libre en la mañana y un café tranquilo cerca.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-049",
+    "pregunta": "Busco una ruta de ciclismo de montaña, un hostal con ducha caliente y un restaurante típico cerca.",
+    "nivel": "compleja"
+  },
+  {
+    "id": "EX-C-050",
+    "pregunta": "Necesito un lugar para observar aves al amanecer, un hostal económico y un guía de naturaleza con WhatsApp.",
+    "nivel": "compleja"
+  }
+
+]
+   
+   

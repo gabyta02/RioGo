@@ -1,0 +1,98 @@
+{
+  "llm": {
+    "default_provider": "deepseek",
+    "default_model": "deepseek-v4-flash",
+    "providers": {
+      "deepseek": {
+        "enabled": true,
+        "name": "deepseek",
+        "model": "deepseek-v4-flash",
+        "base_url": "https://api.deepseek.com",
+        "api_key_env": "DEEPSEEK_API_KEY",
+        "timeout_seconds": 35.0,
+        "sdk": "openai",
+        "max_tokens": 4096,
+        "thinking_enabled": false,
+        "reasoning_effort": null
+      }
+    },
+    "routes": {
+      "exploracion": {
+        "provider": "deepseek",
+        "model": "deepseek-v4-flash",
+        "stream": false,
+        "stream_thinking": false,
+        "thinking_enabled": false,
+        "json_response": false
+      },
+      "exploracion_plan": {
+        "provider": "deepseek",
+        "model": "deepseek-v4-flash",
+        "stream": false,
+        "stream_thinking": false,
+        "thinking_enabled": false,
+        "json_response": true
+      },
+      "exploracion_fallback": {
+        "provider": "deepseek",
+        "model": "deepseek-v4-flash",
+        "stream": false,
+        "stream_thinking": false,
+        "thinking_enabled": false,
+        "json_response": true
+      },
+      "sitio": {
+        "provider": "deepseek",
+        "model": "deepseek-v4-flash",
+        "stream": false,
+        "stream_thinking": false,
+        "thinking_enabled": false,
+        "json_response": false
+      }
+    }
+  },
+  "nodes": {
+    "preparacion": {
+      "estado": "preparando_consulta",
+      "mensaje": "Preparando consulta..."
+    },
+    "construir_plan": {
+      "estado_inicial": "analizando_consulta",
+      "mensaje_inicial": "Estoy entendiendo lo que buscas...",
+      "estado_validando": "validando_plan",
+      "mensaje_validando": "Estoy organizando tu consulta..."
+    },
+    "ejecutar_plan": {
+      "estado_inicial": "ejecutando_plan",
+      "mensaje_inicial": "Estoy ejecutando las herramientas del plan...",
+      "estado_final": "fin_ejecucion",
+      "mensaje_final": "Ejecución del plan completada."
+    }
+  },
+  "tools": {
+    "shared": {
+      "limpieza": {
+        "max_palabras_mensaje": 80,
+        "max_repeticion_caracter": 2,
+        "max_saltos_linea_consecutivos": 2,
+        "min_digitos_sin_contexto": 5
+      },
+      "promp_inyection": {
+        "umbral_bloqueo": 0.8
+      },
+      "inyectar_palabra": {
+        "rapidfuzz_score_minimo": 85,
+        "rapidfuzz_score_medio": 90,
+        "rapidfuzz_score_alto": 95,
+        "max_etiquetas": 8,
+        "ventana_ngrams_max": 4
+      }
+    }
+  },
+  "memory": {
+    "enabled": true,
+    "key_prefix": "chatboot:memoria:planificador",
+    "ttl_seconds": 3600,
+    "max_preguntas": 4
+  }
+}

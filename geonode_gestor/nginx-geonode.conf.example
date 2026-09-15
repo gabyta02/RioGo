@@ -1,0 +1,46 @@
+# Ejemplo manual para publicar GeoNode detras de Nginx.
+# No copiar sin revisar certificados, rutas, dominio y el tipo de despliegue.
+#
+# Importante:
+# - Este ejemplo funciona directamente para un Nginx instalado en el host.
+# - Si se usa el Nginx actual de RiobambaGo dentro de Docker, 127.0.0.1 apunta al
+#   contenedor Nginx, no al host. Esa integracion requiere una fase separada.
+
+server {
+    listen 80;
+    server_name geo.midominio.com;
+
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name geo.midominio.com;
+
+    ssl_certificate /etc/nginx/certs/geo.midominio.com/fullchain.pem;
+    ssl_certificate_key /etc/nginx/certs/geo.midominio.com/privkey.pem;
+
+    client_max_body_size 500M;
+
+    proxy_read_timeout 300;
+    proxy_connect_timeout 300;
+    proxy_send_timeout 300;
+
+    location /geoserver/ {
+        proxy_pass http://127.0.0.1:8082/geoserver/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_redirect off;
+    }
+
+    location / {
+        proxy_pass http://127.0.0.1:8081;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_redirect off;
+    }
+}

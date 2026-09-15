@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block contenido %}
+<p style="margin:0 0 12px;font-size:18px;font-weight:bold;color:#1E293B;">{{ titulo }}</p>
+<p style="margin:0 0 20px;font-size:15px;line-height:1.6;color:#475569;">{{ mensaje }}</p>
+<table role="presentation" cellspacing="0" cellpadding="0" style="margin:0 0 20px;">
+  <tr>
+    <td style="background:#EAF4EF;border:2px dashed {{ color_primario }};border-radius:10px;padding:18px 28px;text-align:center;">
+      <span style="font-size:32px;font-weight:bold;letter-spacing:8px;color:{{ color_primario }};">{{ codigo }}</span>
+    </td>
+  </tr>
+</table>
+<p style="margin:0 0 8px;font-size:14px;color:#64748B;">
+  Este codigo expira en <strong>{{ expira_minutos }} minutos</strong>.
+</p>
+<p style="margin:0;font-size:13px;color:#94A3B8;">
+  Por seguridad, no compartas este codigo con nadie.
+</p>
+{% endblock %}

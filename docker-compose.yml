@@ -1,0 +1,162 @@
+services:
+  ngix:
+    build:
+      context: ./ngix
+      dockerfile: Dockerfile
+    container_name: riobambago-ngix
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./ngix/certs:/etc/nginx/certs:ro
+    depends_on:
+      - panel-admin
+    networks:
+      - RiobambaGo
+
+  chatboot:
+    build:
+      context: ./chatboot
+      dockerfile: Dockerfile
+    container_name: riobambago-chatboot
+    restart: unless-stopped
+    env_file:
+      - ./chatboot/.env
+    environment:
+      REDIS_HOST: redis-chatboot
+      REDIS_PORT: "6379"
+      REDIS_URL: redis://redis-chatboot:6379/0
+      APIS_BASE_URL: http://apis:8000
+      APIS_TIMEOUT_SECONDS: "30"
+      APIS_TIMEOUT_SEMANTICA_SECONDS: "45"
+      CHATBOOT_WORKERS: "2"
+      CHATBOOT_MESSAGE_TIMEOUT_SECONDS: "55"
+      LLM_MAX_CONCURRENT_REQUESTS: "16"
+      LLM_TIMEOUT_SECONDS: "35"
+      LLM_MAX_TOKENS: "4096"
+      LLM_RETRY_ATTEMPTS: "3"
+      LLM_RETRY_BASE_SECONDS: "0.5"
+      APIS_HTTP_MAX_CONNECTIONS: "100"
+      APIS_HTTP_MAX_KEEPALIVE_CONNECTIONS: "20"
+      EXPLORACION_TOOL_TIMEOUT_SECONDS: "12"
+      EXPLORACION_CONSULTA_TIMEOUT_SECONDS: "45"
+      EXPLORACION_CARD_TIMEOUT_SECONDS: "5"
+      EXPLORACION_REDACTOR_TIMEOUT_SECONDS: "18"
+      EXPLORACION_FALLBACK_TIMEOUT_SECONDS: "12"
+    expose:
+      - "8000"
+    volumes:
+      - ./fuente_datos:/app/fuente_datos:ro
+    depends_on:
+      redis-chatboot:
+        condition: service_healthy
+      apis:
+        condition: service_started
+    networks:
+      - RiobambaGo
+
+  apis:
+    build:
+      context: ./apis
+      dockerfile: Dockerfile
+    container_name: riobambago-apis
+    restart: unless-stopped
+    env_file:
+      - ./apis/.env
+      - ./base_datos/.env
+    environment:
+      REDIS_HOST: redis-apis
+      REDIS_PORT: "6379"
+      REDIS_URL: redis://redis-apis:6379/0
+      APIS_WORKERS: "2"
+      DB_POOL_SIZE: "10"
+      DB_MAX_OVERFLOW: "20"
+      DB_POOL_TIMEOUT: "10"
+      PUBLIC_BASE_URL: https://www.riobambatour.org
+      DEFAULT_SITE_IMAGE_URL: /api/v1/imagenes/default/site.jpg
+    expose:
+      - "8000"
+    volumes:
+      - ./fuente_datos:/app/fuente_datos
+    depends_on:
+      redis-apis:
+        condition: service_healthy
+      postgres-apis:
+        condition: service_healthy
+    networks:
+      - RiobambaGo
+
+  postgres-apis:
+    build:
+      context: ./base_datos
+      dockerfile: Dockerfile
+    container_name: postgres-apis
+    restart: unless-stopped
+    env_file:
+      - ./base_datos/.env
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - postgres-apisdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    networks:
+      - RiobambaGo
+
+  redis-apis:
+    image: redis:7-alpine
+    container_name: redis-apis
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+    volumes:
+      - redis-apisdata:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    networks:
+      - RiobambaGo
+
+  redis-chatboot:
+    image: redis/redis-stack-server:latest
+    container_name: redis-chatboot
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-chatbootdata:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    networks:
+      - RiobambaGo
+  
+  panel-admin:
+    build:
+      context: ./panel_admin
+      dockerfile: dockerfile
+    container_name: riobambago-panel-admin
+    restart: unless-stopped
+    expose:
+      - "80"
+    depends_on:
+      - apis
+    networks:
+      - RiobambaGo
+
+networks:
+  RiobambaGo:
+    name: RiobambaGo
+    driver: bridge
+
+volumes:
+  redis-apisdata:
+  redis-chatbootdata:
+  postgres-apisdata:

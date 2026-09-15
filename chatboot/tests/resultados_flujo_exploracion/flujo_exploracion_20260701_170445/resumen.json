@@ -1,0 +1,234 @@
+{
+  "timestamp": "2026-07-01T17:04:45",
+  "questions_file": "/app/tests/preguntas.json",
+  "concurrency": 50,
+  "duration_seconds": 60.0,
+  "request_timeout_seconds": 60.0,
+  "total_duration_seconds": 75.187,
+  "requests_completed": 238,
+  "throughput_rps": 3.165,
+  "ok": 238,
+  "failed": 0,
+  "success_rate_percent": 100.0,
+  "breakpoints": {},
+  "errors": {},
+  "latency_total_seconds": {
+    "count": 238,
+    "min": 1.525,
+    "avg": 13.805,
+    "p50": 12.437,
+    "p95": 28.379,
+    "p99": 35.622,
+    "max": 39.965
+  },
+  "stage_latency_seconds": {
+    "cargar_memoria": {
+      "count": 238,
+      "min": 0.001,
+      "avg": 0.832,
+      "p50": 0.007,
+      "p95": 4.409,
+      "p99": 4.738,
+      "max": 5.098
+    },
+    "crear_plan": {
+      "count": 238,
+      "min": 1.434,
+      "avg": 6.924,
+      "p50": 5.207,
+      "p95": 19.018,
+      "p99": 26.326,
+      "max": 35.099
+    },
+    "ejecutar_plan": {
+      "count": 238,
+      "min": 0.0,
+      "avg": 5.719,
+      "p50": 4.024,
+      "p95": 18.229,
+      "p99": 19.62,
+      "max": 20.317
+    },
+    "guardar_memoria": {
+      "count": 238,
+      "min": 0.001,
+      "avg": 0.014,
+      "p50": 0.01,
+      "p95": 0.045,
+      "p99": 0.079,
+      "max": 0.112
+    },
+    "shared_flow": {
+      "count": 238,
+      "min": 0.011,
+      "avg": 0.315,
+      "p50": 0.051,
+      "p95": 1.716,
+      "p99": 1.877,
+      "max": 1.957
+    }
+  },
+  "slowest": [
+    {
+      "index": 119,
+      "pregunta_id": "EX-C-045",
+      "ok": true,
+      "punto_quiebre": null,
+      "total_seconds": 39.965,
+      "stage_seconds": {
+        "shared_flow": 0.061,
+        "cargar_memoria": 0.002,
+        "crear_plan": 35.099,
+        "ejecutar_plan": 4.793,
+        "guardar_memoria": 0.01
+      },
+      "error_type": null,
+      "error": null
+    },
+    {
+      "index": 48,
+      "pregunta_id": "EX-C-025",
+      "ok": true,
+      "punto_quiebre": null,
+      "total_seconds": 38.215,
+      "stage_seconds": {
+        "shared_flow": 1.856,
+        "cargar_memoria": 3.302,
+        "crear_plan": 17.017,
+        "ejecutar_plan": 16.03,
+        "guardar_memoria": 0.01
+      },
+      "error_type": null,
+      "error": null
+    },
+    {
+      "index": 121,
+      "pregunta_id": "EX-M-025",
+      "ok": true,
+      "punto_quiebre": null,
+      "total_seconds": 36.435,
+      "stage_seconds": {
+        "shared_flow": 0.028,
+        "cargar_memoria": 0.002,
+        "crear_plan": 18.174,
+        "ejecutar_plan": 18.225,
+        "guardar_memoria": 0.005
+      },
+      "error_type": null,
+      "error": null
+    },
+    {
+      "index": 26,
+      "pregunta_id": "EX-C-033",
+      "ok": true,
+      "punto_quiebre": null,
+      "total_seconds": 34.237,
+      "stage_seconds": {
+        "shared_flow": 1.788,
+        "cargar_memoria": 3.499,
+        "crear_plan": 16.188,
+        "ejecutar_plan": 12.747,
+        "guardar_memoria": 0.014
+      },
+      "error_type": null,
+      "error": null
+    },
+    {
+      "index": 10,
+      "pregunta_id": "EX-M-041",
+      "ok": true,
+      "punto_quiebre": null,
+      "total_seconds": 32.757,
+      "stage_seconds": {
+        "shared_flow": 0.954,
+        "cargar_memoria": 4.417,
+        "crear_plan": 12.891,
+        "ejecutar_plan": 14.474,
+        "guardar_memoria": 0.009
+      },
+      "error_type": null,
+      "error": null
+    },
+    {
+      "index": 137,
+      "pregunta_id": "EX-S-042",
+      "ok": true,
+      "punto_quiebre": null,
+      "total_seconds": 32.75,
+      "stage_seconds": {
+        "shared_flow": 0.031,
+        "cargar_memoria": 0.01,
+        "crear_plan": 26.327,
+        "ejecutar_plan": 6.374,
+        "guardar_memoria": 0.008
+      },
+      "error_type": null,
+      "error": null
+    },
+    {
+      "index": 130,
+      "pregunta_id": "EX-M-043",
+      "ok": true,
+      "punto_quiebre": null,
+      "total_seconds": 30.223,
+      "stage_seconds": {
+        "shared_flow": 0.074,
+        "cargar_memoria": 0.009,
+        "crear_plan": 16.433,
+        "ejecutar_plan": 13.692,
+        "guardar_memoria": 0.015
+      },
+      "error_type": null,
+      "error": null
+    },
+    {
+      "index": 46,
+      "pregunta_id": "EX-C-005",
+      "ok": true,
+      "punto_quiebre": null,
+      "total_seconds": 29.815,
+      "stage_seconds": {
+        "shared_flow": 1.851,
+        "cargar_memoria": 3.307,
+        "crear_plan": 24.3,
+        "ejecutar_plan": 0.354,
+        "guardar_memoria": 0.003
+      },
+      "error_type": null,
+      "error": null
+    },
+    {
+      "index": 174,
+      "pregunta_id": "EX-M-031",
+      "ok": true,
+      "punto_quiebre": null,
+      "total_seconds": 29.668,
+      "stage_seconds": {
+        "shared_flow": 0.042,
+        "cargar_memoria": 0.023,
+        "crear_plan": 27.008,
+        "ejecutar_plan": 2.59,
+        "guardar_memoria": 0.004
+      },
+      "error_type": null,
+      "error": null
+    },
+    {
+      "index": 177,
+      "pregunta_id": "EX-M-034",
+      "ok": true,
+      "punto_quiebre": null,
+      "total_seconds": 29.493,
+      "stage_seconds": {
+        "shared_flow": 0.032,
+        "cargar_memoria": 0.006,
+        "crear_plan": 26.323,
+        "ejecutar_plan": 3.125,
+        "guardar_memoria": 0.007
+      },
+      "error_type": null,
+      "error": null
+    }
+  ],
+  "output_dir": "/app/tests/resultados_flujo_exploracion/flujo_exploracion_20260701_170445"
+}

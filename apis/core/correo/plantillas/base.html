@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ marca }}</title>
+</head>
+<body style="margin:0;padding:0;background-color:#F9FAFB;font-family:Arial,Helvetica,sans-serif;color:#1E293B;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color:#F9FAFB;padding:24px 12px;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:560px;background:#FFFFFF;border:1px solid #E2E8F0;border-radius:12px;overflow:hidden;">
+          <tr>
+            <td style="background:{{ color_primario }};padding:20px 24px;">
+              <p style="margin:0;font-size:20px;font-weight:bold;color:#FFFFFF;">{{ marca }}</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:28px 24px;">
+              {% block contenido %}{% endblock %}
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:16px 24px 24px;border-top:1px solid #E2E8F0;background:#F9FAFB;">
+              <p style="margin:0 0 8px;font-size:12px;color:#64748B;line-height:1.5;">
+                Si no solicitaste este correo, puedes ignorarlo con seguridad.
+              </p>
+              <p style="margin:0;font-size:12px;color:#64748B;">&copy; {{ marca }}</p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

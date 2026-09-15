@@ -1,0 +1,301 @@
+services:
+  geonode_gestor_db:
+    image: geonode/postgis:${POSTGRES_IMAGE_TAG}
+    container_name: geonode_gestor_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+
+      GEONODE_DATABASE: ${GEONODE_DATABASE}
+      GEONODE_DATABASE_USER: ${GEONODE_DATABASE_USER}
+      GEONODE_DATABASE_PASSWORD: ${GEONODE_DATABASE_PASSWORD}
+
+      GEONODE_GEODATABASE: ${GEONODE_GEODATABASE}
+      GEONODE_GEODATABASE_USER: ${GEONODE_GEODATABASE_USER}
+      GEONODE_GEODATABASE_PASSWORD: ${GEONODE_GEODATABASE_PASSWORD}
+
+      POSTGRESQL_MAX_CONNECTIONS: ${POSTGRESQL_MAX_CONNECTIONS}
+    volumes:
+      - geonode_gestor_db_data:/var/lib/postgresql/data
+      - geonode_gestor_backup:/pg_backups
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER}"]
+      interval: 30s
+      timeout: 10s
+      retries: 10
+      start_period: 90s
+    networks:
+      - geonode_gestor_net
+  
+  geonode_gestor_geoserver_data:
+    image: geonode/geoserver_data:${GEOSERVER_DATA_IMAGE_TAG}
+    container_name: geonode_gestor_geoserver_data
+    restart: "no"
+    command: /bin/true
+    volumes:
+      - geonode_gestor_geoserver_data:/geoserver_data/data
+    networks:
+      - geonode_gestor_net
+
+  geonode_gestor_redis:
+    image: redis:7-alpine
+    container_name: geonode_gestor_redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+    volumes:
+      - geonode_gestor_redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    networks:
+      - geonode_gestor_net
+
+  geonode_gestor_django:
+    image: geonode/geonode:${GEONODE_IMAGE_TAG}
+    container_name: geonode_gestor_django
+    restart: unless-stopped
+    command: uwsgi --ini /usr/src/geonode/uwsgi.ini
+    environment:
+      IS_CELERY: "False"
+      DJANGO_SETTINGS_MODULE: geonode_riobamba_settings
+
+      DATABASE_HOST: ${DATABASE_HOST}
+      DATABASE_PORT: ${DATABASE_PORT}
+      DATABASE_URL: ${DATABASE_URL}
+      GEODATABASE_URL: ${GEODATABASE_URL}
+      DEFAULT_BACKEND_DATASTORE: ${DEFAULT_BACKEND_DATASTORE}
+
+      BROKER_URL: ${BROKER_URL}
+      CELERY_RESULT_BACKEND: ${CELERY_RESULT_BACKEND}
+      CELERY_BEAT_SCHEDULER: ${CELERY_BEAT_SCHEDULER}
+      ASYNC_SIGNALS: "${ASYNC_SIGNALS}"
+
+      GEOSERVER_LOCATION: http://geoserver:8080/geoserver/
+      GEOSERVER_LB_HOST_IP: geoserver
+      GEOSERVER_LB_PORT: "8080"
+
+      SITEURL: ${SITEURL}
+      ALLOWED_HOSTS: ${ALLOWED_HOSTS}
+      CSRF_TRUSTED_ORIGINS: ${CSRF_TRUSTED_ORIGINS}
+      GEOSERVER_PUBLIC_LOCATION: ${GEOSERVER_PUBLIC_LOCATION}
+      GEOSERVER_WEB_UI_LOCATION: ${GEOSERVER_WEB_UI_LOCATION}
+
+      DEBUG: "${GEONODE_DEBUG:-False}"
+      SECRET_KEY: ${SECRET_KEY}
+      SESSION_COOKIE_SECURE: "${SESSION_COOKIE_SECURE}"
+      CSRF_COOKIE_SECURE: "${CSRF_COOKIE_SECURE}"
+      SECURE_PROXY_SSL_HEADER: ${SECURE_PROXY_SSL_HEADER}
+      LOGIN_URL: ${LOGIN_URL}
+      LOGOUT_URL: ${LOGOUT_URL}
+      LOGIN_REDIRECT_URL: ${LOGIN_REDIRECT_URL}
+      LOGOUT_REDIRECT_URL: ${LOGOUT_REDIRECT_URL}
+      GEONODE_SESSION_COOKIE_NAME: ${GEONODE_SESSION_COOKIE_NAME}
+      GEONODE_CSRF_COOKIE_NAME: ${GEONODE_CSRF_COOKIE_NAME}
+
+      ADMIN_USERNAME: ${ADMIN_USERNAME}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      ADMIN_EMAIL: ${ADMIN_EMAIL}
+
+      OAUTH2_API_KEY: ${OAUTH2_API_KEY}
+      OAUTH2_CLIENT_ID: ${OAUTH2_CLIENT_ID}
+      OAUTH2_CLIENT_SECRET: ${OAUTH2_CLIENT_SECRET}
+
+      STATIC_ROOT: ${STATIC_ROOT}
+      MEDIA_ROOT: ${MEDIA_ROOT}
+      ASSETS_ROOT: ${ASSETS_ROOT}
+      GEOIP_PATH: ${GEOIP_PATH}
+
+      EMAIL_ENABLE: "${EMAIL_ENABLE}"
+      EMAIL_HOST: ${EMAIL_HOST}
+      EMAIL_PORT: ${EMAIL_PORT}
+      EMAIL_HOST_USER: ${EMAIL_HOST_USER}
+      EMAIL_HOST_PASSWORD: ${EMAIL_HOST_PASSWORD}
+      EMAIL_USE_TLS: "${EMAIL_USE_TLS}"
+      DEFAULT_FROM_EMAIL: ${DEFAULT_FROM_EMAIL}
+    expose:
+      - "8000"
+    volumes:
+      - ./settings_overrides/geonode_riobamba_settings.py:/usr/src/geonode/geonode_riobamba_settings.py:ro
+      - geonode_gestor_static:/mnt/volumes/statics
+      - geonode_gestor_uploaded:/mnt/volumes/statics/uploaded
+      - geonode_gestor_geoserver_data:/geoserver_data/data
+      - geonode_gestor_backup:/backup_restore
+      - ./urls_geonode_personalizado.py:/usr/src/geonode/geonode/urls.py:ro
+      - ./brand_navbar_default_right_menu_items.html:/usr/src/venv/lib/python3.12/site-packages/geonode_mapstore_client/templates/geonode-mapstore-client/snippets/brand_navbar_default_right_menu_items.html:ro
+      - ./brand_navbar.html:/usr/src/venv/lib/python3.12/site-packages/geonode_mapstore_client/templates/geonode-mapstore-client/snippets/brand_navbar.html:ro
+    depends_on:
+      geonode_gestor_db:
+        condition: service_healthy
+      geonode_gestor_redis:
+        condition: service_healthy
+    networks:
+      geonode_gestor_net:
+        aliases:
+          - geonode
+      RiobambaGo:
+        aliases:
+          - geonode
+
+  geonode_gestor_celery:
+    image: geonode/geonode:${GEONODE_IMAGE_TAG}
+    container_name: geonode_gestor_celery
+    restart: unless-stopped
+    environment:
+      IS_CELERY: "True"
+      DJANGO_SETTINGS_MODULE: geonode_riobamba_settings
+
+      DATABASE_HOST: ${DATABASE_HOST}
+      DATABASE_PORT: ${DATABASE_PORT}
+      DATABASE_URL: ${DATABASE_URL}
+      GEODATABASE_URL: ${GEODATABASE_URL}
+      DEFAULT_BACKEND_DATASTORE: ${DEFAULT_BACKEND_DATASTORE}
+
+      BROKER_URL: ${BROKER_URL}
+      CELERY_RESULT_BACKEND: ${CELERY_RESULT_BACKEND}
+      CELERY_BEAT_SCHEDULER: ${CELERY_BEAT_SCHEDULER}
+      ASYNC_SIGNALS: "${ASYNC_SIGNALS}"
+
+      GEOSERVER_LOCATION: http://geoserver:8080/geoserver/
+      GEOSERVER_LB_HOST_IP: geoserver
+      GEOSERVER_LB_PORT: "8080"
+
+      SITEURL: ${SITEURL}
+      ALLOWED_HOSTS: ${ALLOWED_HOSTS}
+      CSRF_TRUSTED_ORIGINS: ${CSRF_TRUSTED_ORIGINS}
+      GEOSERVER_PUBLIC_LOCATION: ${GEOSERVER_PUBLIC_LOCATION}
+      GEOSERVER_WEB_UI_LOCATION: ${GEOSERVER_WEB_UI_LOCATION}
+
+      DEBUG: "${GEONODE_DEBUG:-False}"
+      SECRET_KEY: ${SECRET_KEY}
+      SESSION_COOKIE_SECURE: "${SESSION_COOKIE_SECURE}"
+      CSRF_COOKIE_SECURE: "${CSRF_COOKIE_SECURE}"
+      SECURE_PROXY_SSL_HEADER: ${SECURE_PROXY_SSL_HEADER}
+      LOGIN_URL: ${LOGIN_URL}
+      LOGOUT_URL: ${LOGOUT_URL}
+      LOGIN_REDIRECT_URL: ${LOGIN_REDIRECT_URL}
+      LOGOUT_REDIRECT_URL: ${LOGOUT_REDIRECT_URL}
+      GEONODE_SESSION_COOKIE_NAME: ${GEONODE_SESSION_COOKIE_NAME}
+      GEONODE_CSRF_COOKIE_NAME: ${GEONODE_CSRF_COOKIE_NAME}
+
+      ADMIN_USERNAME: ${ADMIN_USERNAME}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      ADMIN_EMAIL: ${ADMIN_EMAIL}
+
+      OAUTH2_API_KEY: ${OAUTH2_API_KEY}
+      OAUTH2_CLIENT_ID: ${OAUTH2_CLIENT_ID}
+      OAUTH2_CLIENT_SECRET: ${OAUTH2_CLIENT_SECRET}
+
+      STATIC_ROOT: ${STATIC_ROOT}
+      MEDIA_ROOT: ${MEDIA_ROOT}
+      ASSETS_ROOT: ${ASSETS_ROOT}
+      GEOIP_PATH: ${GEOIP_PATH}
+
+      EMAIL_ENABLE: "${EMAIL_ENABLE}"
+      EMAIL_HOST: ${EMAIL_HOST}
+      EMAIL_PORT: ${EMAIL_PORT}
+      EMAIL_HOST_USER: ${EMAIL_HOST_USER}
+      EMAIL_HOST_PASSWORD: ${EMAIL_HOST_PASSWORD}
+      EMAIL_USE_TLS: "${EMAIL_USE_TLS}"
+      DEFAULT_FROM_EMAIL: ${DEFAULT_FROM_EMAIL}
+    command: celery-cmd
+    volumes:
+      - ./settings_overrides/geonode_riobamba_settings.py:/usr/src/geonode/geonode_riobamba_settings.py:ro
+      - geonode_gestor_static:/mnt/volumes/statics
+      - geonode_gestor_uploaded:/mnt/volumes/statics/uploaded
+      - geonode_gestor_geoserver_data:/geoserver_data/data
+      - geonode_gestor_backup:/backup_restore
+      - ./urls_geonode_personalizado.py:/usr/src/geonode/geonode/urls.py:ro
+    depends_on:
+      geonode_gestor_db:
+        condition: service_healthy
+      geonode_gestor_redis:
+        condition: service_healthy
+      geonode_gestor_django:
+        condition: service_started
+    networks:
+      - geonode_gestor_net
+
+  geonode_gestor_geoserver:
+    image: geonode/geoserver:${GEOSERVER_IMAGE_TAG}
+    container_name: geonode_gestor_geoserver
+    restart: unless-stopped
+    environment:
+      GEOSERVER_ADMIN_USER: ${GEOSERVER_ADMIN_USER}
+      GEOSERVER_ADMIN_PASSWORD: ${GEOSERVER_ADMIN_PASSWORD}
+
+      GEOSERVER_PUBLIC_LOCATION: ${GEOSERVER_PUBLIC_LOCATION}
+      GEOSERVER_WEB_UI_LOCATION: ${GEOSERVER_WEB_UI_LOCATION}
+
+      DATABASE_HOST: ${DATABASE_HOST}
+      DATABASE_PORT: ${DATABASE_PORT}
+      GEODATABASE_URL: ${GEODATABASE_URL}
+
+      GEONODE_LB_HOST_IP: geonode
+      GEONODE_LB_PORT: "8000"
+      GEOSERVER_LB_HOST_IP: geoserver
+      GEOSERVER_LB_PORT: "8080"
+
+      GEONODE_DATABASE: ${GEONODE_DATABASE}
+      GEONODE_DATABASE_USER: ${GEONODE_DATABASE_USER}
+      GEONODE_DATABASE_PASSWORD: ${GEONODE_DATABASE_PASSWORD}
+
+      GEONODE_GEODATABASE: ${GEONODE_GEODATABASE}
+      GEONODE_GEODATABASE_USER: ${GEONODE_GEODATABASE_USER}
+      GEONODE_GEODATABASE_PASSWORD: ${GEONODE_GEODATABASE_PASSWORD}
+      GEONODE_GEODATABASE_SCHEMA: ${GEONODE_GEODATABASE_SCHEMA}
+
+      ENABLE_JSONP: "true"
+      GEOSERVER_JAVA_OPTS: ${GEOSERVER_JAVA_OPTS}
+    expose:
+      - "8080"
+    volumes:
+      - geonode_gestor_static:/mnt/volumes/statics
+      - geonode_gestor_geoserver_data:/geoserver_data/data
+      - geonode_gestor_uploaded:/data
+      - geonode_gestor_backup:/backup_restore
+      - ./urls_geonode_personalizado.py:/usr/src/geonode/geonode/urls.py:ro
+    depends_on:
+      geonode_gestor_geoserver_data:
+        condition: service_completed_successfully
+      geonode_gestor_db:
+        condition: service_healthy
+      geonode_gestor_django:
+        condition: service_started
+    networks:
+      geonode_gestor_net:
+        aliases:
+          - geoserver
+      RiobambaGo:
+        aliases:
+          - geoserver
+
+networks:
+  geonode_gestor_net:
+    name: geonode_gestor_net
+    driver: bridge
+
+  RiobambaGo:
+    external: true
+
+volumes:
+  geonode_gestor_db_data:
+    name: geonode_gestor_db_data
+
+  geonode_gestor_geoserver_data:
+    name: geonode_gestor_geoserver_data
+
+  geonode_gestor_static:
+    name: geonode_gestor_static
+
+  geonode_gestor_uploaded:
+    name: geonode_gestor_uploaded
+
+  geonode_gestor_backup:
+    name: geonode_gestor_backup
+
+  geonode_gestor_redis_data:
+    name: geonode_gestor_redis_data

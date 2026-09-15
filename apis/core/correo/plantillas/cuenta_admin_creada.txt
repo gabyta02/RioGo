@@ -1,0 +1,14 @@
+{{ marca }} - Tu cuenta administrativa
+
+Hola {{ nombre_completo }},
+
+Se creo tu cuenta administrativa en {{ marca }}.
+
+Usuario: {{ username }}
+Contrasena temporal: {{ password_temporal }}
+
+Ingresa al panel: {{ url_panel }}
+
+Por seguridad, cambia tu contrasena despues del primer acceso.
+
+Si no esperabas este correo, contacta al administrador del sistema.

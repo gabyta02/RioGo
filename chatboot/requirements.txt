@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+httpx
+requests
+pydantic
+python-dotenv
+redis
+rapidfuzz
+langgraph
+openai
+typing_extensions
